@@ -1,0 +1,13 @@
+{
+  "name": "91huayi-video-tools",
+  "version": "1.1.0",
+  "private": true,
+  "description": "Chrome 扩展：为 91huayi.com 视频课程添加倍速播放、画中画（PiP）与快捷控制面板",
+  "scripts": {
+    "test": "node test/run.js",
+    "icons": "node tools/make-icons.js"
+  },
+  "devDependencies": {
+    "puppeteer-core": "^25.16.0"
+  }
+}
