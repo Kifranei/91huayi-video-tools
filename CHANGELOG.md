@@ -2,6 +2,13 @@
 
 本项目的重要变更都记录在这里，格式参考 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.1.0/)。
 
+## [Unreleased]
+
+### Added
+
+- 新增油猴脚本 `userscripts/chinahrt-speed.user.js`，为国人通（chinahrt）系继续教育平台提供倍速播放：0.25x–4x、档位/滑块、记忆、快捷键、播放器重置自愈、强制限速时自动接受实际倍速。
+- 新增 `test/chinahrt-userscript.js`（`npm run test:chinahrt`）：用本地 mock 播放器验证 10 项行为，并检查真实登录页不会误注入。
+
 ## [1.1.0] - 2026-11-05
 
 ### Added

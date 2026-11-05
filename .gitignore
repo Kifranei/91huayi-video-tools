@@ -2,3 +2,4 @@ node_modules/
 test/profile*/
 test/shots/
 *.log
+test/fixtures/*.mp4

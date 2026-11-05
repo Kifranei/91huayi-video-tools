@@ -64,6 +64,24 @@ npm test
 
 测试产物截图在 `test/shots/`（已 gitignore）。
 
+## 附：chinahrt 继续教育倍速脚本
+
+`userscripts/chinahrt-speed.user.js` 是一个独立的油猴脚本，适用于国人通（chinahrt）系继续教育平台，包括 `hlbe.chinahrt.cn`、`*.chinahrt.com`、`*.chinahrt.com.cn`。
+
+- 0.25x–4x 倍速，9 个档位 + 无级滑块
+- 优先调用播放器自带的 `player.changePlaybackRate()`，同时直接设置 `<video>` 兜底
+- 记忆倍速、刷新后恢复、播放器重置后 1.5 秒内自动恢复
+- 播放器强制限速时（连续被改回）自动接受实际倍速并提示，不会来回打架
+- 可拖动 / 可收起，`Alt+↑` / `Alt+↓` / `Alt+0` 快捷键
+
+安装：油猴（Tampermonkey / Violentmonkey）→ 新建脚本 → 粘贴 `userscripts/chinahrt-speed.user.js` 全部内容 → 保存。也可以用油猴面板的「导入」选择该文件。
+
+```bash
+npm run test:chinahrt
+```
+
+该测试用本地 mock 页面模拟 chinahrt 播放器（含 `window.player` 接口、强制限速场景），并检查真实登录页不会误注入，10 项断言全部通过。
+
 ## 已知限制
 
 - 画中画依赖页面的 Permissions Policy：如果视频位于**跨域** iframe 且 iframe 没有 `allow="picture-in-picture"`，浏览器会拒绝进入 PiP（面板会给出提示）。倍速不受此限制。

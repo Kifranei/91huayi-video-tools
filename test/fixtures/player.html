@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>chinahrt mock player</title>
+    <style>
+      body { margin: 0; background: #111; }
+      video { display: block; width: 720px; height: 405px; }
+    </style>
+  </head>
+  <body>
+    <video id="v" src="sample.mp4" controls autoplay muted playsinline></video>
+    <script>
+      window.__calls = [];
+      window.player = {
+        V: document.getElementById('v'),
+        changePlaybackRate(rate) {
+          window.__calls.push(rate);
+          this.V.playbackRate = rate;
+        },
+        videoPlay() {
+          this.V.play();
+        },
+        getMetaDate() {
+          return { duration: this.V.duration };
+        },
+      };
+    </script>
+  </body>
+</html>
