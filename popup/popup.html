@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>华医网视频助手</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header>
+      <span class="logo">»</span>
+      <div class="titles">
+        <h1>华医网视频助手</h1>
+        <p id="status">正在检测页面…</p>
+      </div>
+      <span class="chip" id="chip">1x</span>
+    </header>
+
+    <section class="body" id="body">
+      <div class="presets" id="presets"></div>
+      <div class="slider">
+        <input type="range" id="slider" min="0.25" max="4" step="0.05" value="1" />
+        <span id="val">1x</span>
+      </div>
+      <div class="actions">
+        <button id="lock" class="btn"><span class="dot"></span><span id="lockLabel">锁定倍速</span></button>
+        <button id="show" class="btn">显示面板</button>
+      </div>
+      <label class="opt">
+        <input type="checkbox" id="stealth" />
+        <span class="track"><span class="knob"></span></span>
+        <span>兼容模式（对播放器隐藏倍速）</span>
+      </label>
+      <p class="tip">画中画需要页面内的点击手势，请使用页面右下角面板中的「画中画」按钮，或按 Alt+P。</p>
+    </section>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>chinahrt mock player (1.5x enforcement)</title>
+    <style>
+      body { margin: 0; background: #111; }
+      video { display: block; width: 720px; height: 405px; }
+    </style>
+  </head>
+  <body>
+    <video id="v" src="sample.mp4" controls autoplay muted playsinline></video>
+    <script>
+      window.__calls = [];
+      window.__enforce = false;
+      const v = document.getElementById('v');
+      window.player = {
+        V: v,
+        changePlaybackRate(rate) {
+          window.__calls.push(rate);
+          window.__enforce = true;
+          v.playbackRate = rate;
+        },
+        videoPlay() {
+          v.play();
+        },
+        getMetaDate() {
+          return { duration: v.duration };
+        },
+      };
+      setInterval(() => {
+        if (window.__enforce && v.playbackRate !== 1.5) v.playbackRate = 1.5;
+      }, 300);
+    </script>
+  </body>
+</html>

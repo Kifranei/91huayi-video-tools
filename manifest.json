@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "华医网视频助手 · 倍速 & 画中画",
+  "version": "1.0.0",
+  "description": "为 91huayi.com 的视频课程添加倍速播放、画中画（小窗）与快捷控制面板。",
+  "minimum_chrome_version": "111",
+  "permissions": ["storage"],
+  "content_scripts": [
+    {
+      "matches": ["*://*.91huayi.com/*", "*://*.polyv.net/*"],
+      "js": ["content/main-world.js"],
+      "run_at": "document_start",
+      "all_frames": true,
+      "world": "MAIN"
+    },
+    {
+      "matches": ["*://*.91huayi.com/*", "*://*.polyv.net/*"],
+      "js": ["content/content.js"],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ],
+  "action": {
+    "default_title": "华医网视频助手",
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
